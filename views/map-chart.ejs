@@ -1,0 +1,35 @@
+<%- include('partials/head', { title: 'Map Chart' }) %>
+
+<h1 class="h3 mb-3">Map Chart: Responses by Country</h1>
+<div id="mapChart" style="height: 500px;"></div>
+
+<!-- Google GeoChart for country map visualization -->
+<script src="https://www.gstatic.com/charts/loader.js"></script>
+<script>
+  const mapData = <%- JSON.stringify(mapData) %>;
+
+  google.charts.load('current', {
+    packages: ['geochart']
+  });
+
+  google.charts.setOnLoadCallback(drawMap);
+
+  function drawMap() {
+    // Google chart expects a 2D array with headers.
+    const rows = [['Country', 'Responses']];
+    mapData.forEach((item) => {
+      rows.push([item.label, item.count]);
+    });
+
+    const data = google.visualization.arrayToDataTable(rows);
+
+    const options = {
+      colorAxis: { colors: ['#dbeafe', '#0d6efd'] }
+    };
+
+    const chart = new google.visualization.GeoChart(document.getElementById('mapChart'));
+    chart.draw(data, options);
+  }
+</script>
+
+<%- include('partials/foot') %>
