@@ -1,0 +1,17 @@
+<%- include('partials/head', { title: 'Thank You' }) %>
+
+<div class="row justify-content-center">
+  <div class="col-lg-8">
+    <div class="alert alert-success shadow-sm" role="alert">
+      <h1 class="h4">Thank you for your response!</h1>
+      <p class="mb-0">Your survey has been submitted successfully.</p>
+    </div>
+
+    <div class="d-flex gap-2">
+      <a class="btn btn-outline-primary" href="/survey">Fill Another Response</a>
+      <a class="btn btn-primary" href="/charts/bar">View Charts</a>
+    </div>
+  </div>
+</div>
+
+<%- include('partials/foot') %>

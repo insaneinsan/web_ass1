@@ -1,0 +1,41 @@
+<%- include('partials/head', { title: 'Bar Chart' }) %>
+
+<h1 class="h3 mb-3">Bar Chart: Satisfaction Scores</h1>
+<canvas id="barChart" height="100"></canvas>
+
+<!-- Chart.js for simple chart rendering in browser -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  const chartData = <%- JSON.stringify(chartData) %>;
+
+  const labels = chartData.map((item) => `Score ${item.label}`);
+  const values = chartData.map((item) => item.count);
+
+  const ctx = document.getElementById('barChart');
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels,
+      datasets: [
+        {
+          label: 'Number of responses',
+          data: values,
+          backgroundColor: '#0d6efd'
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      scales: {
+        y: {
+          beginAtZero: true,
+          ticks: {
+            stepSize: 1
+          }
+        }
+      }
+    }
+  });
+</script>
+
+<%- include('partials/foot') %>
