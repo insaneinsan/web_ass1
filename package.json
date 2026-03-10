@@ -1,0 +1,26 @@
+{
+  "name": "online-survey-system",
+  "version": "1.0.0",
+  "description": "Simple Node.js assignment project: Student Online Learning Experience survey.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "keywords": [
+    "express",
+    "ejs",
+    "mongoose",
+    "survey"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^4.21.2",
+    "mongoose": "^8.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  }
+}

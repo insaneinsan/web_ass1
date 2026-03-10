@@ -1,0 +1,71 @@
+<%- include('partials/head', { title: 'Survey Form' }) %>
+
+<div class="row justify-content-center">
+  <div class="col-lg-8">
+    <div class="card shadow-sm">
+      <div class="card-body">
+        <h1 class="h3 mb-3">Student Online Learning Experience Survey</h1>
+        <p class="text-muted">Please fill out this short survey.</p>
+
+        <!-- Plain HTML form submit to server (No AJAX used) -->
+        <form method="POST" action="/survey">
+          <div class="mb-3">
+            <label class="form-label" for="ageGroup">Age Group</label>
+            <select class="form-select" id="ageGroup" name="ageGroup" required>
+              <option value="" selected disabled>Select age group</option>
+              <option>Under 18</option>
+              <option>18-22</option>
+              <option>23-30</option>
+              <option>31-40</option>
+              <option>41+</option>
+            </select>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label" for="gender">Gender</label>
+            <select class="form-select" id="gender" name="gender" required>
+              <option value="" selected disabled>Select gender</option>
+              <option>Male</option>
+              <option>Female</option>
+              <option>Non-binary</option>
+              <option>Prefer not to say</option>
+            </select>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label" for="country">Country</label>
+            <input class="form-control" id="country" name="country" type="text" required />
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label" for="preferredDevice">Preferred Device</label>
+            <select class="form-select" id="preferredDevice" name="preferredDevice" required>
+              <option value="" selected disabled>Select device</option>
+              <option>Laptop</option>
+              <option>Desktop</option>
+              <option>Tablet</option>
+              <option>Smartphone</option>
+            </select>
+          </div>
+
+          <div class="mb-4">
+            <label class="form-label" for="satisfaction">Satisfaction (1 to 5)</label>
+            <input
+              class="form-control"
+              id="satisfaction"
+              name="satisfaction"
+              type="number"
+              min="1"
+              max="5"
+              required
+            />
+          </div>
+
+          <button class="btn btn-primary" type="submit">Submit Survey</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include('partials/foot') %>
